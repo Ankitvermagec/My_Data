@@ -223,7 +223,7 @@
 #         break
 
 
-
+#tree must be balanced
 
 
 class Node:
