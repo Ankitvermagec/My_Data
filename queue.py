@@ -39,7 +39,9 @@ class Queue:
    def data_push(item):
     if(int(len(Queue.item)+1)==int(Queue.max)):  
    #  if(len(Queue.item)>Queue.max):
+       print("\n------------------") 
        print("Queue overflow!!!")
+       print("------------------\n")
        return
        
     Queue.item.append(item)
@@ -62,7 +64,9 @@ class Queue:
 
    def data_pop():
     if(len(Queue.item)<=0):
+        print("\n------------------")
         print("Queue underflow!!!")
+        print("------------------\n")
         return
 
    
@@ -178,9 +182,13 @@ class Queue:
 
            
       if(find_value == 1):
+         print("\n--------------------------------------")
          print("Value present at position",value_position)
+         print("--------------------------------------\n")
       else:
+         print("\n-----------------")
          print("value not present")   
+         print("-----------------\n")
 
 
       # str_value = ""
@@ -205,8 +213,9 @@ class Queue:
       last_valid_index = len(Queue.item) -1
       peek_value = Queue.item[last_valid_index]
 
+      print("\n----------------------------------------------------")
       print(f"peek value is :- {peek_value} , At position :-{last_valid_index+1}")
-
+      print("----------------------------------------------------\n")
       # str_value = ""
       # for count in range(Queue.max): 
       #   # FIX 3: Changed -2 to -1 so the top element of the Queue shows up
@@ -225,13 +234,16 @@ class Queue:
    
 
    def data_display():
+         print()
          Queue.Traverse("* Please Select Queue Operation Below :\n"
          "(1) enqueue\n" 
          "(2) dequeue\n"
          "(3) peek\n"
          "(4) search\n"
          "(5) sort\n"
-         "(6) Reverse"
+         "(6) Reverse\n"
+         "(7) Go Back\n"
+         "(8) Exit\n"
          )
          operation_choice=input("Please enter your operation:")
          # data_inset=input("Please enter your data:")
@@ -249,9 +261,17 @@ class Queue:
             data_search_value=input("Data Search value :-")
             Queue.data_search(data_search_value)   
          elif(operation_choice=="3"):
-            Queue.data_peek()     
+            Queue.data_peek()    
+         elif operation_choice == "7":
+            from mainClass import MainClass
 
-         Queue.data_display()
+            MainClass().main_function()    
+
+         elif(operation_choice=="8"):
+            return 
+
+         if (operation_choice is not "8"):
+            Queue.data_display()
 
 
 

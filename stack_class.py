@@ -9,6 +9,11 @@
 #     print(Stack.a)
 
 # Stack.my_print()
+
+
+# from mainClass import MainClass
+
+
    
 class Stack:
    max =8
@@ -28,7 +33,8 @@ class Stack:
         if(item_index >= 0 and item_index <len(Stack.item) ):
       #   if(count >= (Stack.max - Stack.stack_push) and count < (Stack.max - Stack.stack_push)):
          #   str_value= str_value +"|"+ "  10  " +"|"+"\n"
-           str_value= str_value +"|  "+ str(Stack.item[item_index]) +"  |"+"\n"
+         #   str_value= str_value +"|  "+ str(Stack.item[item_index]) +"  |"+"\n"
+           str_value= str_value +f"|{str(Stack.item[item_index]):^4}  |"+"\n"
         elif(count == 7):
            str_value= str_value +"|"+ ("_"  * 6) +"|"+"\n"
         else:
@@ -356,7 +362,8 @@ class Stack:
          " (4) search\n"
          " (5) sort\n"
          " (6) Reverse\n"
-         " (7) Exit"
+         " (7) Exit\n"
+         " (8) Go Back"
          )
          operation_choice=input("Please enter your operation:")
          # data_inset=input("Please enter your data:")
@@ -375,11 +382,20 @@ class Stack:
             Stack.data_search(data_search_value)   
          elif(operation_choice=="3"):
             Stack.data_peek()     
-         elif(operation_choice=="7"):
+         elif(operation_choice=="8"):
             return
+            # break
             # Main_Function()   
+         # elif(operation_choice=="8"):
+         #    obj.main_function()
 
-         Stack.data_display()
+         elif operation_choice == "7":
+            from mainClass import MainClass
+
+            MainClass().main_function()
+
+         if (operation_choice is not "8"):
+            Stack.data_display()
 
 
    # def data_push(item):
