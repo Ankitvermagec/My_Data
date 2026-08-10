@@ -256,48 +256,137 @@ class Tree:
         return self.search(root.right, parent_value)
 
     # ---------------- INSERT ----------------
+    # def insert(self):
+
+    #     value = input("Enter Node Value : ")
+
+    #     if self.root is None:
+    #         self.root = Node(value)
+    #         print("Root inserted.")
+    #         return
+
+    #     parent = input("Enter Parent Node Value : ")
+
+    #     parent_node = self.search(self.root, parent)
+
+    #     if parent_node is None:
+    #         print("Parent not found.")
+    #         return
+
+    #     print("1. Left")
+    #     print("2. Right")
+
+    #     choice = input("Select Position : ")
+
+    #     if choice == "1":
+
+    #         if parent_node.left is None:
+    #             parent_node.left = Node(value)
+    #             print("Left child inserted.")
+    #         else:
+    #             print("Left child already exists.")
+
+    #     elif choice == "2":
+
+    #         if parent_node.right is None:
+    #             parent_node.right = Node(value)
+    #             print("Right child inserted.")
+    #         else:
+    #             print("Right child already exists.")
+
+    #     else:
+    #         print("Invalid Choice")
+
     def insert(self):
+        value = input("pls Enter value : -")
+        new_node = Node(value)
 
-        value = input("Enter Node Value : ")
-
+        #First Node
         if self.root is None:
-            self.root = Node(value)
-            print("Root inserted.")
+            self.root = new_node
+            print("root inserted")
             return
 
-        parent = input("Enter Parent Node Value : ")
+        temp = self.root
 
-        parent_node = self.search(self.root, parent)
+        while True:
 
-        if parent_node is None:
-            print("Parent not found.")
-            return
+            # Try LEFT
+            if temp.left is None:
+                temp.left = new_node
+                print("inserted on left")
+                return
 
-        print("1. Left")
-        print("2. Right")
+            elif temp.right is None:
+                temp.right = new_node
+                print("inserted on right")
+                return
 
-        choice = input("Select Position : ")
-
-        if choice == "1":
-
-            if parent_node.left is None:
-                parent_node.left = Node(value)
-                print("Left child inserted.")
+            
+            # Both are occupied
+            # Move to next node
             else:
-                print("Left child already exists.")
+                temp = temp.left
 
-        elif choice == "2":
+            
+    # ---------------- DISPLAY ----------------
+    # def display(self):
 
-            if parent_node.right is None:
-                parent_node.right = Node(value)
-                print("Right child inserted.")
-            else:
-                print("Right child already exists.")
+    #     if self.root is None:
+    #         print("Tree is Empty")
+    #         return
 
-        else:
-            print("Invalid Choice")
+    #     print("\n")
+
+    #     # Root
+    #     print(" " * 10 + str(self.root.value))
+
+    #     # Root branches
+    #     print(" " * 9 + "/" + " " * 2 + "\\")
+
+    #     # Level 2
+    #     left = " "
+    #     right = " "
+
+    #     if self.root.left:
+    #         left = self.root.left.value
+
+    #     if self.root.right:
+    #         right = self.root.right.value
+
+    #     print(" " * 7 + str(left) + " " * 6 + str(right))
+
+    #     # Level 3
+    #     if self.root.left:
+
+    #         ll = " "
+    #         lr = " "
+
+    #         if self.root.left.left:
+    #             ll = self.root.left.left.value
+
+    #         if self.root.left.right:
+    #             lr = self.root.left.right.value
+
+    #         print(" " * 6 + "/" + " " * 2 + "\\")
+    #         print(" " * 4 + str(ll) + " " * 6 + str(lr))
+
+    #     if self.root.right:
+
+    #         rl = " "
+    #         rr = " "
+
+    #         if self.root.right.left:
+    #             rl = self.root.right.left.value
+
+    #         if self.root.right.right:
+    #             rr = self.root.right.right.value
+
+    #         print(" " * 20 + "/" + " " * 2 + "\\")
+    #         print(" " * 18 + str(rl) + " " * 6 + str(rr))
 
     # ---------------- DISPLAY ----------------
+
     def display(self):
 
         if self.root is None:
@@ -306,13 +395,10 @@ class Tree:
 
         print("\n")
 
-        # Root
         print(" " * 10 + str(self.root.value))
 
-        # Root branches
         print(" " * 9 + "/" + " " * 2 + "\\")
 
-        # Level 2
         left = " "
         right = " "
 
@@ -324,7 +410,6 @@ class Tree:
 
         print(" " * 7 + str(left) + " " * 6 + str(right))
 
-        # Level 3
         if self.root.left:
 
             ll = " "
@@ -337,21 +422,11 @@ class Tree:
                 lr = self.root.left.right.value
 
             print(" " * 6 + "/" + " " * 2 + "\\")
+
             print(" " * 4 + str(ll) + " " * 6 + str(lr))
 
-        if self.root.right:
 
-            rl = " "
-            rr = " "
 
-            if self.root.right.left:
-                rl = self.root.right.left.value
-
-            if self.root.right.right:
-                rr = self.root.right.right.value
-
-            print(" " * 20 + "/" + " " * 2 + "\\")
-            print(" " * 18 + str(rl) + " " * 6 + str(rr))
 
 
 tree = Tree()
